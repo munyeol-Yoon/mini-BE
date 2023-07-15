@@ -45,4 +45,4 @@ jobs:
           --application-name hous-codedeploy
           --deployment-config-name CodeDeployDefault.OneAtATime
           --deployment-group-name GROUP
-          --s3-location bucket=mini-be-bucket,bundleType=zip,key=hous.zip
+          --s3-location bucket=mini-be-bucket,bundleType=zip,key=deploy/hous.zip
