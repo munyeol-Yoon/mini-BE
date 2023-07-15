@@ -1,8 +1,8 @@
 #!/bin/bash
-REPOSITORY=/home/ubuntu/build
+REPOSITORY=/home/ubuntu/mini_BE
 
 cd $REPOSITORY
 
 sudo npm ci
 
-sudo npm start
+npm start

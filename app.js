@@ -12,7 +12,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  return res.send("Home 입니다. 2");
+  return res.send("Home 입니다. 제발");
 });
 
 app.use("/api", indexRouter);
