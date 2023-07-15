@@ -22,12 +22,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - name: build server files
-      - run: npm ci
+        run: npm ci
       # - run: npm run build --if-present
       # - run: npm test
 
       - name: zip file
-      - run: zip -r hous.zip ./app.js ./scripts ./appspec.yml ./package.json ./package-lock.json ./config ./controllers ./migrations ./models ./routes
+        run: zip -r hous.zip ./app.js ./scripts ./appspec.yml ./package.json ./package-lock.json ./config ./controllers ./migrations ./models ./routes
 
       - name: AWS configure credentials
         uses: aws-actions/configure-aws-credentials@v1
