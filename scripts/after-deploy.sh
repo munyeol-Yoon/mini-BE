@@ -1,5 +1,5 @@
 #!/bin/bash
-REPOSITORY=/home/ubuntu/mini_BE
+REPOSITORY=/home/ubuntu/mini-BE
 
 cd $REPOSITORY
 

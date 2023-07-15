@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/mini_BE
+    destination: /home/ubuntu/mini-BE
     overwrite: yes
 
 permissions:
