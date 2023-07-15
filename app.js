@@ -11,6 +11,10 @@ const indexRouter = require("./routes");
 app.use(morgan("dev"));
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  return res.send("Home");
+});
+
 app.use("/api", indexRouter);
 
 app.listen(PORT, () => {
