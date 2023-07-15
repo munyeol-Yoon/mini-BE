@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 let corsOptions = {
-  origin: "http://mini-project-gamma-eight.vercel.app/",
+  origin: "https://mini-project-gamma-eight.vercel.app/",
   credential: true,
 };
 
