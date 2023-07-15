@@ -7,7 +7,7 @@ const createPost = async (req, res) => {
     res.status(201).json({ message: "게시글을 생성하였습니다." });
   } catch (error) {
     console.log(error);
-    res.status(400).json({ errorMessage: error });
+    res.status(400).json({ errorMessage: error.message });
   }
 };
 
@@ -17,7 +17,7 @@ const findAllPosts = async (req, res) => {
     res.json({ data });
   } catch (error) {
     console.log(error);
-    res.status(400).json({ errorMessage: error });
+    res.status(400).json({ errorMessage: error.message });
   }
 };
 
