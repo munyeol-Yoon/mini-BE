@@ -37,6 +37,7 @@ jobs:
           aws-region: ap-northeast-2
 
       - name: create env file
+        working-directory: ./
         run: |
           pwd
           touch .env
