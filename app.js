@@ -18,10 +18,6 @@ app.use(cors(corsOptions));
 app.use(morgan("dev"));
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  return res.send("Home 입니다. 제발aa");
-});
-
 app.use("/api", indexRouter);
 
 app.listen(PORT, () => {
