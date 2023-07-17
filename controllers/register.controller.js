@@ -53,7 +53,10 @@ const loginController = async (req, res) => {
     const token = jwt.sign({ name }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-    res.cookie("userToken", `Bearer ${token}`, { path: "/" });
+    res.cookie("userToken", `Bearer ${token}`, {
+      domain: "https://fe-mini-project.vercel.app/",
+      path: "/",
+    });
 
     return res
       .status(200)
