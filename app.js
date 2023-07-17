@@ -5,23 +5,20 @@ const morgan = require("morgan");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-let corsOptions = {
-  origin: "*",
-  credential: true,
-};
+// let corsOptions = {
+//   origin: "*",
+//   credential: true,
+// };
 
 const indexRouter = require("./routes");
 
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(express.json());
-
 
 app.use("/api", indexRouter);
 
