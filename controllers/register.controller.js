@@ -53,7 +53,7 @@ const loginController = async (req, res) => {
     const token = jwt.sign({ name }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-    res.cookie("userToken", `Bearer ${token}`, { httpOnly: true });
+    res.cookie("userToken", `Bearer ${token}`, { secure: true });
 
     return res
       .status(200)
