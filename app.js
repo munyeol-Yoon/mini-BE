@@ -8,14 +8,14 @@ const cookieParser = require("cookie-parser");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// let corsOptions = {
-//   origin: "*",
-//   credential: true,
-// };
+let corsOptions = {
+  origin: "https://fe-mini-project.vercel.app",
+  credential: true,
+};
 
 const indexRouter = require("./routes");
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(express.json());
