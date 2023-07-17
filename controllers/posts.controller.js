@@ -10,8 +10,10 @@ const createPost = async (req, res) => {
       req.body
     );
 
+    const { userId } = res.locals.user;
+
     //! create 시에 userId 를 같이 넣어주세요.
-    const savedPost = await Posts.create({ title, content, name, imgsrc });
+    const savedPost = await Posts.create({ userId, title, content, name, imgsrc });
     return res.status(201).json({ message: "게시글을 생성하였습니다." });
   } catch (error) {
     console.log(error);
@@ -59,10 +61,11 @@ const findPost = async (req, res) => {
 const updatePost = async (req, res) => {
   try {
     const { postId } = req.params;
+    const { userId } = res.locals.user;
     const { title, content, imgsrc } = await updatePostschema.validateAsync(
       req.body
     );
-    const post = await Posts.findOne({ where: { postId } });
+    const post = await Posts.findOne({ where: { postId, userId } });
 
     // post matching
     if (!post) {
@@ -80,6 +83,7 @@ const updatePost = async (req, res) => {
     //! update 시에 userId 를 같이 넣어주세요
     // update title and content
     const updatePost = await post.update({
+      userId,
       title,
       content,
       imgsrc,
@@ -105,7 +109,8 @@ const updatePost = async (req, res) => {
 const deletePost = async (req, res) => {
   try {
     const { postId } = req.params;
-    const post = await Posts.findOne({ where: { postId } });
+    const { userId } = res.locals.user;
+    const post = await Posts.findOne({ where: { postId, userId } });
 
     if (!post) {
       return res
