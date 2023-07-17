@@ -4,13 +4,13 @@ const { Users } = require("../models");
 const jwtValidation = async (req, res, next) => {
   try {
     // const cookies = req.cookies["userToken"];
-    const cookies = req.headers;
-    // if (!cookies) {
-    //   return res.status(403).json({
-    //     errorMessage: "로그인이 필요한 기능입니다.",
-    //     log: cookies,
-    //   });
-    // }
+    const cookies = req.headers.usertoken;
+    if (!cookies) {
+      return res.status(403).json({
+        errorMessage: "로그인이 필요한 기능입니다.",
+        log: cookies,
+      });
+    }
     console.log(cookies);
     const [tokenType, tokenValue] = (cookies ?? "").split(" ");
     if (tokenType !== "Bearer" || !tokenValue || !tokenType) {
