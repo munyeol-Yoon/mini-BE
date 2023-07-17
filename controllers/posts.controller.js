@@ -69,9 +69,9 @@ const findPost = async (req, res) => {
 
 const updatePost = async (req, res) => {
   try {
+    const { title, content, imgsrc } = await postSchema.validateAsync(req.body);
     const { postId } = req.params;
     const { userId } = res.locals.user;
-    const { title, content, imgsrc } = await postSchema.validateAsync(req.body);
     const post = await Posts.findOne({ where: { postId, userId } });
 
     // post matching
