@@ -9,7 +9,7 @@ const createPost = async (req, res) => {
     console.log(error);
     return res
       .status(400)
-      .json({ errorMessage: "게시글 생성에 실패하였습니다." });
+      .json({ errorMessage: "게시글 생성에 실패하였습니다. " });
   }
 };
 
