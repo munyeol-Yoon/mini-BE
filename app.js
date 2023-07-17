@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 let corsOptions = {
-  origin: "https://fe-mini-project.vercel.app",
+  origin: "*",
   credential: true,
 };
 
