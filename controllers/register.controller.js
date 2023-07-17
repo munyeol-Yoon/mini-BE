@@ -54,7 +54,7 @@ const loginController = async (req, res) => {
       expiresIn: "1h",
     });
     res.cookie("userToken", `Bearer ${token}`, {
-      domain: "https://fe-mini-project.vercel.app/",
+      domain: "https://fe-mini-project.vercel.app",
       path: "/",
     });
 
