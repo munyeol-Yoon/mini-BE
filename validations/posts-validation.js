@@ -13,12 +13,6 @@ const postSchema = Joi.object({
     "any.only": "형식이 올바르지 않습니다.",
     "any.invalid": "형식이 올바르지 않습니다.",
   }),
-  name: Joi.string().trim().empty("").max(10).required().messages({
-    "any.required": "닉네임을 입력해주세요.",
-    "string.max": `'닉네임'은 {#limit} 글자 이하로 입력해주세요.`,
-    "any.only": "형식이 올바르지 않습니다.",
-    "any.invalid": "형식이 올바르지 않습니다.",
-  }),
   imgsrc: Joi.string().uri().allow(null).optional(),
 });
 

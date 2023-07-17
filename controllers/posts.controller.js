@@ -1,4 +1,4 @@
-const { Posts } = require("../models");
+const { Posts, Users } = require("../models");
 const {
   postSchema,
   updatePostschema,
@@ -6,14 +6,26 @@ const {
 
 const createPost = async (req, res) => {
   try {
-    const { title, content, name, imgsrc } = await postSchema.validateAsync(
-      req.body
-    );
+    const { title, content, imgsrc } = await postSchema.validateAsync(req.body);
 
     const { userId } = res.locals.user;
+    console.log(userId);
 
-    //! create 시에 userId 를 같이 넣어주세요.
-    const savedPost = await Posts.create({ userId, title, content, name, imgsrc });
+    const existUser = await Users.findOne({ where: { userId } });
+
+    if (!existUser) {
+      return res
+        .status(404)
+        .json({ errorMessage: "해당 유저가 존재하지 않습니다. " });
+    }
+
+    const savedPost = await Posts.create({
+      userId,
+      title,
+      content,
+      name: existUser.name,
+      imgsrc,
+    });
     return res.status(201).json({ message: "게시글을 생성하였습니다." });
   } catch (error) {
     console.log(error);
@@ -80,7 +92,6 @@ const updatePost = async (req, res) => {
         .json({ errorMessage: "내용이 존재하지 않습니다." });
     }
 
-    //! update 시에 userId 를 같이 넣어주세요
     // update title and content
     const updatePost = await post.update({
       userId,
@@ -118,7 +129,6 @@ const deletePost = async (req, res) => {
         .json({ errorMessage: "게시글을 찾을 수 없습니다." });
     }
 
-    //! destroy 시에 postId, 와 userId 가 같은 경우만 지워주세요
     const deletePost = await post.destroy();
     if (!deletePost) {
       return res

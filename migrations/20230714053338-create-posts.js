@@ -28,8 +28,6 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
       },
       imgsrc: {
         type: Sequelize.STRING,

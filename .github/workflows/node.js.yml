@@ -35,6 +35,7 @@ jobs:
           echo MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }} >> .env
           echo MYSQL_HOST=${{ secrets.MYSQL_HOST }} >> .env
           echo MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }} >> .env
+          echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
           cat .env
 
       - name: zip file
