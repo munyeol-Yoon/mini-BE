@@ -57,7 +57,7 @@ const loginController = async (req, res) => {
 
     return res
       .status(200)
-      .json({ data: { token: token, message: "로그인에 성공하였습니다." } });
+      .json({ token: token, message: "로그인에 성공하였습니다." });
   } catch (error) {
     console.log(error);
     if (error.isJoi) {
