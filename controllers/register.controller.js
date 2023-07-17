@@ -55,7 +55,7 @@ const loginController = async (req, res) => {
     });
     res.cookie("userToken", `Bearer ${token}`, { httpOnly: true });
 
-    return res.status(201).json({ data: token });
+    return res.status(200).json({ message: "로그인에 성공하였습니다. " });
   } catch (error) {
     console.log(error);
     if (error.isJoi) {
