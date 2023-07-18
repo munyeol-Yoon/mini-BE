@@ -8,6 +8,7 @@ const {
   deletePost,
 } = require("../controllers/posts.controller");
 
+const authMiddleware = require("../middleware/auth-middleware");
 const upload = require("../multer/awsMulterModules");
 
 const router = express.Router();
