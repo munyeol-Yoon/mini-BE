@@ -30,7 +30,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       imgsrc: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(1024),
       },
       createdAt: {
         allowNull: false,
