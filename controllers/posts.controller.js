@@ -3,7 +3,7 @@ const { postSchema } = require("../validations/posts-validation");
 
 const createPost = async (req, res) => {
   try {
-    const image = req.file?.location;
+    let image = req.file?.location;
     if (!image) {
       image = "http://fweusdfn.html";
     }
