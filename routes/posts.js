@@ -13,7 +13,7 @@ const upload = require("../multer/awsMulterModules");
 
 const router = express.Router();
 
-router.post("/", authMiddleware, upload.single("image"), createPost);
+router.post("/", authMiddleware, upload.single("imgFile"), createPost);
 router.get("/", findAllPosts);
 router.get("/:postId", findPost);
 router.put("/:postId", authMiddleware, updatePost);

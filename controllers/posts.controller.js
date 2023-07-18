@@ -31,7 +31,7 @@ const createPost = async (req, res) => {
       title,
       content,
       name: existUser.name,
-      imgsrc: image,
+      imgsrc: image.replace(/\/original\//, "/thumb/"),
     });
     return res.status(201).json({ message: "게시글을 생성하였습니다." });
   } catch (error) {
