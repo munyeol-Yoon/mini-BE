@@ -3,7 +3,12 @@ const { postSchema } = require("../validations/posts-validation");
 
 const createPost = async (req, res) => {
   try {
-    const { title, content, imgsrc } = await postSchema.validateAsync(req.body);
+    const image = req.file?.location;
+    if (!image) {
+      image = "http://fweusdfn.html";
+    }
+
+    const { title, content } = await postSchema.validateAsync(req.body);
 
     const { userId } = res.locals.user;
     console.log(userId);
@@ -21,7 +26,7 @@ const createPost = async (req, res) => {
       title,
       content,
       name: existUser.name,
-      imgsrc,
+      imgsrc: image,
     });
     return res.status(201).json({ message: "게시글을 생성하였습니다." });
   } catch (error) {

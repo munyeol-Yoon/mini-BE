@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 3000;
 let corsOptions = {
   origin: "*",
   credential: true,
+  optionsSuccessStatus: 200,
+  exposedHeaders: ["Authorization"],
+  allowedHeaders: ["Authorization", "Content-Type"],
 };
 
 const indexRouter = require("./routes");
