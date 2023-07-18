@@ -10,13 +10,11 @@ const createPost = async (req, res) => {
     if (!image) {
       image = "http://fweusdfn.html";
     }
-
-    const { title, content, imgFile, imgsrc } = await postSchema.validateAsync(
-      req.body
-    );
+    console.log(req.file);
+    console.log(image);
+    const { title, content } = await postSchema.validateAsync(req.body);
 
     const { userId } = res.locals.user;
-    console.log(userId);
 
     const existUser = await Users.findOne({ where: { userId } });
 
@@ -25,7 +23,7 @@ const createPost = async (req, res) => {
         .status(404)
         .json({ errorMessage: "해당 유저가 존재하지 않습니다. " });
     }
-
+    console.log(image.replace(/\/original\//, "/thumb/"));
     const savedPost = await Posts.create({
       userId,
       title,

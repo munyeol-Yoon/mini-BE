@@ -13,8 +13,8 @@ const postSchema = Joi.object({
     "any.only": "형식이 올바르지 않습니다.",
     "any.invalid": "형식이 올바르지 않습니다.",
   }),
-  imgFile: Joi.object().required(),
-  imgsrc: Joi.string().uri().required(),
+  //   imgFile: Joi.object().required(),
+  //   imgsrc: Joi.string().uri().required(),
 });
 
 const updatePostSchema = Joi.object({
