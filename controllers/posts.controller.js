@@ -11,7 +11,9 @@ const createPost = async (req, res) => {
       image = "http://fweusdfn.html";
     }
 
-    const { title, content } = await postSchema.validateAsync(req.body);
+    const { title, content, imgFile, imgsrc } = await postSchema.validateAsync(
+      req.body
+    );
 
     const { userId } = res.locals.user;
     console.log(userId);
