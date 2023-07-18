@@ -69,8 +69,7 @@ const findPost = async (req, res) => {
 
 const updatePost = async (req, res) => {
   try {
-    // const { title, content, imgsrc } = await postSchema.validateAsync(req.body);
-    const { title, content, imgsrc } = req.body;
+    const { title, content, imgsrc } = await postSchema.validateAsync(req.body);
     console.log(title, content, imgsrc);
     const { postId } = req.params;
     const { userId } = res.locals.user;
