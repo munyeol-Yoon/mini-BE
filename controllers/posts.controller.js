@@ -1,5 +1,8 @@
 const { Posts, Users } = require("../models");
-const { postSchema } = require("../validations/posts-validation");
+const {
+  postSchema,
+  updatePostSchema,
+} = require("../validations/posts-validation");
 
 const createPost = async (req, res) => {
   try {
@@ -74,7 +77,9 @@ const findPost = async (req, res) => {
 
 const updatePost = async (req, res) => {
   try {
-    const { title, content, imgsrc } = await postSchema.validateAsync(req.body);
+    const { title, content, imgsrc } = await updatePostSchema.validateAsync(
+      req.body
+    );
 
     const { postId } = req.params;
     const { userId } = res.locals.user;
