@@ -6,7 +6,7 @@ const {
 
 const createPost = async (req, res) => {
   try {
-    let image = req.file?.location;
+    let image = req.file.location;
     if (!image) {
       image = "http://fweusdfn.html";
     }
