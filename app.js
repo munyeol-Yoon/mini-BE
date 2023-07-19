@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 let corsOptions = {
-  origin: "*",
+  origin: "https://fe-mini-project.vercel.app/",
   credential: true,
   // optionsSuccessStatus: 200,
   // exposedHeaders: ["Authorization"],
