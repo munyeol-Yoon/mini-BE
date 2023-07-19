@@ -161,5 +161,3 @@ multer-s3 다운그레이드를 통해 버전을 바꾸는 것을 성공함.
 | FE(리더) | 김민승 | UI / UX , 상태 관리 , 서버 통신 작업     | https://github.com/helloworld442 |
 | BE       | 윤문열 | CI/CD 구축, HTTPS 구축, s3 이미지 업로드 | https://github.com/munyeol-Yoon  |
 | BE       | 정소채 | 회원가입, 로그인, 게시판 CRUD            | https://github.com/GabrielaJeong |
-
-|
