@@ -6,6 +6,8 @@
 
 S.A 링크 : https://www.notion.so/2-SA-346bc5586c9b4efcab9c48ed3e9b2371
 
+서비스 링크 : https://fe-mini-project.vercel.app/
+
 ## 아키텍쳐
 
 ![아키텍쳐](/architecture.png)
